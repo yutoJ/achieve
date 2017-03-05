@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :my_page, only: [:index]
+  
   root 'top#index'
   
   # The priority is based upon order of creation: first created -> highest priority.
