@@ -8,6 +8,7 @@
         <% @blogs.each do |blog| %>
             <p>タイトル: <%= blog.title %></p>
             <p>本文: <%= blog.content %></p>
+            <p>投稿者: <%= blog.user.name %></p>
             <%= link_to "ブログを編集する",
                 edit_blog_path(blog.id),
                 data: { confirm: "本当に編集して良いですか？"} 
