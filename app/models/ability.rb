@@ -8,10 +8,6 @@ class Ability
     if user && user.admin?
       can :access, :rails_admin
       can :manage, :all
-       #else if user
-      #   can :manage, :Contact
-      # end
-    #     can :read, :all
     end
     #
     # The first argument to `can` is the action you are giving the user
