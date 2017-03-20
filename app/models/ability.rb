@@ -6,13 +6,13 @@ class Ability
     #
     #   user ||= User.new # guest user (not logged in)
     cannot :manage, Contact
-    cannot :access, :new_contact
+    #cannot :access, :new_contact
 
     if user && user.admin?
       can :access, :rails_admin
       can :manage, :all
-      cannot :manage, Contact
-      cannot :access, :new_contact
+      #cannot :manage, Contact
+      #cannot :access, :new_contact
     end
     #
     # The first argument to `can` is the action you are giving the user
