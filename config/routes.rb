@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :poems
+
   resources :my_page, only: [:index]
 
   root 'top#index'

@@ -1,0 +1,7 @@
+<h1>PEOMS<h1>
+
+<% @poems.each do |poem| %>
+<p>Title: <%= poem.title %></p>
+<p>Content: <%= poem.content %></p>
+<%= link_to "detail", poem_path(poem.id) %>
+<% end %>
