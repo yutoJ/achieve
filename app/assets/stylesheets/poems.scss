@@ -1,3 +1,46 @@
 // Place all the styles related to the poems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.poem {
+position: relative;
+color: #000080;
+font-size: 20px;
+padding: 10px 0;
+text-align: center;
+margin: 1.5em 0;
+}
+.poem:before {
+content: "";
+position: absolute;
+top: -8px;
+left: 50%;
+width: 150px;
+height: 58px;
+border-radius: 50%;
+border: 5px solid #FF00FF;
+border-left-color: transparent;
+border-right-color: transparent;
+-moz-transform: translateX(-50%);
+-webkit-transform: translateX(-50%);
+-ms-transform: translateX(-50%);
+transform: translateX(-50%);
+}
+.poem_detail{
+position: relative;
+background: #dfefff;
+box-shadow: 0px 0px 0px 5px #dfefff;
+border: dashed 2px white;
+padding: 0.2em 0.5em;
+color: #454545;
+}
+
+.poem_detail:after{
+position: absolute;
+content: '';
+left: -7px;
+top: -7px;
+border-width: 0 0 15px 15px;
+border-style: solid;
+border-color: #fff #fff #a8d4ff;
+box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
