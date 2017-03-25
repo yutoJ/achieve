@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
 
   resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
     collection do
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :poems
+  resources :poems, only: [:index, :show]
 
   resources :my_page, only: [:index]
 
