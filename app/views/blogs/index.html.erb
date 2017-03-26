@@ -1,19 +1,19 @@
 <div class="container">
     <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
-        
+
         <p><%= notice %></p>
-        
+
         <h1>ブログ一覧</h1>
-        
+
         <% @blogs.each do |blog| %>
             <p>タイトル: <%= blog.title %></p>
             <p>本文: <%= blog.content %></p>
-            <p>投稿者: <%= blog.user.name %></p>
+            <p>投稿者: <%= blog.user.name %> <%= profile_img(blog.user) %></p>
             <%= link_to "ブログを編集する",
                 edit_blog_path(blog.id),
-                data: { confirm: "本当に編集して良いですか？"} 
+                data: { confirm: "本当に編集して良いですか？"}
             %>
-            <%= link_to "ブログを削除する", 
+            <%= link_to "ブログを削除する",
                 blog_path(blog.id), method: :delete,
                 data: { confirm: "本当に削除して良いですか？"}
             %>
