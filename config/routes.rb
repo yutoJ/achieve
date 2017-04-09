@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
+
+  get 'relationships/create'
+
+  get 'relationships/destory'
+
+  get 'users/index'
+
   get 'blogs/show'
 
   get 'comments/create'
@@ -31,6 +39,9 @@ Rails.application.routes.draw do
   resources :my_page, only: [:index]
 
   root 'top#index'
+
+  resources :users, only: [:index, :show]
+  resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
