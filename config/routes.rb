@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/show'
-
-  get 'relationships/create'
-
-  get 'relationships/destory'
-
-  get 'users/index'
-
-  get 'blogs/show'
-
-  get 'comments/create'
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
@@ -42,6 +30,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :relationships, only: [:create, :destroy]
+
+  resources :conversations, only: [:index, :create] do
+    resources :messages
+  end
+
+  resources :messages, only: [:index, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
