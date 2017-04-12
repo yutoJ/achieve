@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'notifications/index'
+
   resources :poems, only: [:index, :show]
 
   resources :my_page, only: [:index]
@@ -32,10 +34,9 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   resources :conversations, only: [:index, :create] do
-    resources :messages
+    resources :messages, only: [:index, :create]
   end
 
-  resources :messages, only: [:index, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

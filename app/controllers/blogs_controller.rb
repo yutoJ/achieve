@@ -16,7 +16,8 @@ class BlogsController < ApplicationController
     @comment = @blog.comments.build
     #@comment1 = Comment.new(user_id: current_user.id)
     @comments = @blog.comments
-    #binding.pry
+    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
+
   end
 
   def new

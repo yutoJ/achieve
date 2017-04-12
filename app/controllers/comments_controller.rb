@@ -2,9 +2,16 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comments_params)
     @blog = @comment.blog
+    @notification = @comment.notifications.build(user_id: @blog.user_id)
+
     respond_to do |format|
       @comment.save if @comment.valid?
       format.js { render :index }
+
+      unless @comment.blog.user_id == current_user.id
+        @comment.notify_new_comment
+      end
+      @comment.notify_num_unread_comments
     end
 =begin
       if @comment.save
