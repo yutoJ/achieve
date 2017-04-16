@@ -6,7 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <script src="http://js.pusher.com/3.2/pusher.min.js"></script>
+  <script src="https://js.pusher.com/3.2/pusher.min.js"></script>
 
   <% if user_signed_in? %>
     <script>
@@ -59,7 +59,7 @@
                     <i class="fa fa-bell fa-1x"><span id="unread_id"><%= @notifications_count %></span></i>
                 <% end %>
               </li>
-            <% else %>  
+            <% else %>
               <li><%= link_to 'Login', new_user_session_path %></li>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
             <% end %>
@@ -79,6 +79,6 @@
       <p>運営会社DIVE INTO CODE株式会社</p>
       <p>© 2015-2016 Copyright DIVE INTO CODE Corp.</p>
   </footer>
-  
+
 </body>
 </html>
