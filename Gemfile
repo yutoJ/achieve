@@ -41,6 +41,16 @@ group :development, :test do
   gem 'spring'
   gem 'letter_opener_web'
   gem 'dotenv-rails'
+
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 gem 'twitter-bootstrap-rails'
