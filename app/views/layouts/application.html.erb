@@ -60,6 +60,8 @@
                 <% end %>
               </li>
               <li><%= link_to 'Tasks', tasks_path %></li>
+              <li><%= link_to 'Requesting', submit_requests_path %></li>
+              <li><%= link_to 'Inbox', inbox_submit_requests_path %></li>
             <% else %>
               <li><%= link_to 'Login', new_user_session_path %></li>
               <li><%= link_to 'Sign Up', new_user_registration_path %></li>
