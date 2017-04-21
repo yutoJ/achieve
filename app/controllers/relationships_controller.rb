@@ -11,7 +11,6 @@ class RelationshipsController < ApplicationController
 
   def destroy
     @user = Relationship.find(params[:id]).followed
-    #binding.pry
     #@user = User.find(params[:relationship][:followed_id])
     #reletionship = Reltionship.find_by(follower_id: params[:relationship][:follower_id], followed_id: params[:relationship][:followed_id])
     #reletionship.destroy!
