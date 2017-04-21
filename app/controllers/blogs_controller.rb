@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
 
-  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :set_blog, only: [:edit, :update, :destroy, :show]
   before_action :authenticate_user!
 
   def index
@@ -10,6 +10,14 @@ class BlogsController < ApplicationController
       format.html
       format.json { render json: @blogs }
     end
+  end
+
+  def show
+    @comment = @blog.comments.build
+    #@comment1 = Comment.new(user_id: current_user.id)
+    @comments = @blog.comments
+    Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
+
   end
 
   def new

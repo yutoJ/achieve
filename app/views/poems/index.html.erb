@@ -1,0 +1,5 @@
+<h1 class="poem">POEM</h1>
+
+<% @poems.each do |poem| %>
+<p>Title: <%= poem.title %> <%= link_to "detail", poem_path(poem.id) %></p>
+<% end %>

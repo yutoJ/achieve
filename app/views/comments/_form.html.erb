@@ -1,0 +1,10 @@
+<%= form_for([blog, comment], remote: true) do |f| %>
+  <%= f.error_messages! %>
+  <%= f.hidden_field :blog_id %>
+    <div class="field">
+      <%= f.text_field :content, placeholder: "content", class: 'form_control' %>
+    </div>
+  <div class="action">
+      <%= f.submit 'post' %>
+  </div>
+<% end %>

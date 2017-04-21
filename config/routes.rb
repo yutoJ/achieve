@@ -5,9 +5,13 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
 
-  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
+  resources :blogs do
+    resources :comments
     collection do
       post :confirm
     end
@@ -18,9 +22,33 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'notifications/index'
+
+  resources :poems, only: [:index, :show]
+
   resources :my_page, only: [:index]
 
   root 'top#index'
+
+  resources :users, only: [:index, :show]
+  resources :relationships, only: [:create, :destroy]
+
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
+
+  resources :tasks
+
+  resources :submit_requests do
+    get 'inbox', on: :collection
+    member do
+      patch 'approve'
+      patch 'reject'
+    end
+  end
+
+
+  #get 'submit_requests/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
