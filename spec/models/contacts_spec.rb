@@ -20,7 +20,7 @@ describe Contact do
     expect(contact.errors[:email]).to include("を入力してください")
   end
 
-  it "is invalid without an content" do
+  it "is invalid without a content" do
     contact = Contact.new(name: "Coldplay", email: "c@com")
     expect(contact).not_to be_valid
     contact.valid?
