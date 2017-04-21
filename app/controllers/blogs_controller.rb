@@ -14,7 +14,6 @@ class BlogsController < ApplicationController
 
   def show
     @comment = @blog.comments.build
-    #@comment1 = Comment.new(user_id: current_user.id)
     @comments = @blog.comments
     Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
 
@@ -42,7 +41,6 @@ class BlogsController < ApplicationController
 
   def confirm
     @blog = Blog.new(blogs_params)
-    #render :new if @blog.invalid?
     if @blog.invalid?
       render 'new'
     end
