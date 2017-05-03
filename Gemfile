@@ -60,3 +60,6 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'pusher'
+
+#aws
+gem 'fog'
