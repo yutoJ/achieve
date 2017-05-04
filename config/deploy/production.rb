@@ -51,6 +51,10 @@
 # ------------------------------------
 server ENV['AWS_EC2_IP'], user: 'app', roles: %w{app db web}
 set :ssh_options, keys: ENV['SSH_KEY_PATH']
+
+set :default_env, {
+  DEVISE_SECRET_KEY: ENV["DEVISE_SECRET_KEY"]
+}
 #   roles: %w{web app},
 #   ssh_options: {
 #     user: 'user_name', # overrides user setting above

@@ -8,7 +8,7 @@ set :repo_url, ENV['GITHUB_REPO']
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
 set :branch, ENV['BRANCH'] || 'master'
-
+#set :branch, 'develop'
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/achieve'
 
