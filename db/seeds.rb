@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-100.times do |n|
+10.times do |n|
     email = Faker::Internet.email
     name = Faker::LordOfTheRings.character
-    password = "password"
+    password = ENV['SEED_USER_PASSWORD']
     User.create!(
         email: email,
         name: name,
@@ -17,10 +17,10 @@
     )
 end
 
-100.times do |n|
+10.times do |n|
     title = Faker::Book.title
     content = Faker::Space.company
-    user_id = n + 1
+    user_id = 1
     Blog.create!(
         title: title,
         content: content,
