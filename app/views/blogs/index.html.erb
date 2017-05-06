@@ -1,25 +1,41 @@
 <div class="container">
-    <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <div class="wrapper col-md-10 col-md-offset-1 col-sm-10">
 
         <p><%= notice %></p>
 
         <h1>ブログ一覧</h1>
-
-        <% @blogs.each do |blog| %>
-            <%= link_to blog_path(blog) do %>
-              <h4><strong><%= blog.title %></strong></h4>
-            <% end %>
-            <p>本文: <%= blog.content %></p>
-            <p class="profile">投稿者: <%= blog.user.name %> <%= profile_img(blog.user) %></p>
-            <%= link_to "ブログを編集する",
-                edit_blog_path(blog.id),
-                data: { confirm: "本当に編集して良いですか？"}
-            %>
-            <%= link_to "ブログを削除する",
-                blog_path(blog.id), method: :delete,
-                data: { confirm: "本当に削除して良いですか？"}
-            %>
-        <% end %>
+        <div class="panel panel-default">
+          <table class="table">
+        		<thead>
+        			<tr>
+        				<th>タイトル</th>
+        				<th>内容</th>
+        				<th>投稿者</th>
+        				<th>操作</th>
+        			</tr>
+        		</thead>
+            <tbody>
+              <% @blogs.each do |blog| %>
+                <tr>
+            			<th>
+                    <strong><%= blog.title %></strong></th>
+                  <th><%= blog.content %></th>
+                  <th><span class="profile"><%= blog.user.name %> <%= profile_img(blog.user) %></span></th>
+                  <th>
+                    <%= link_to "編集",
+                        edit_blog_path(blog.id),
+                        data: { confirm: "本当に編集して良いですか？"}
+                    %>
+                    <%= link_to "削除",
+                        blog_path(blog.id), method: :delete,
+                        data: { confirm: "本当に削除して良いですか？"}
+                    %>
+                  </th>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
         <p><%= link_to "ブログを作成する", new_blog_path %></p>
         <p><%= link_to "お問い合わせ", new_contact_path %></p>
     </div>

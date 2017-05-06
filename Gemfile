@@ -69,6 +69,6 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'pusher'
-
+gem 'devise-i18n-views'
 #aws
 gem 'fog'
